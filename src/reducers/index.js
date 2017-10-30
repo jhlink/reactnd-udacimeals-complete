@@ -1,7 +1,7 @@
 import {
   ADD_RECIPE,
   REMOVE_FROM_CALENDAR
-}
+} from '../actions'
 
 const initialCalendarState = {
   sunday: {
@@ -45,12 +45,13 @@ function calendar (state = initialCalendarState, action) {
   const { day, recipe, meal } = action
   
   switch (action.type) {
-    case ADD_RECIPE:
+    case ADD_RECIPE :
       return { 
         ...state,
         [day]: {
           ...state[day],
           [meal]: recipe.label
+        }
       }
 
     case REMOVE_FROM_CALENDAR :
